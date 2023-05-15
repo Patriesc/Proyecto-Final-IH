@@ -28,7 +28,7 @@ fetch(pokemonUrl)
 
     // Actualizar las habilidades del Pokemon
     const abilities = data.abilities.map((ability) => ability.ability.name)
-    pokemonAbilities.innerHTML = `<strong>Abilities:</strong> ${abilities.to.join(', ')}`
+    pokemonAbilities.innerHTML = `<strong>Abilities:</strong> ${abilities.join(', ')}`
 
     // Actualizar los movimientos del Pokemon
     const moves = data.moves.slice(0, 5).map((move) => move.move.name)
@@ -37,7 +37,7 @@ fetch(pokemonUrl)
   .catch((error) => console.log(error))
 
 randomButton.addEventListener('click', () => {
-  const randomPokemonIndex = Math.floor(Math.random() * 151)
+  const randomPokemonIndex = Math.floor(Math.random() * 649)
   const randomPokemonUrl = `https://pokeapi.co/api/v2/pokemon/${randomPokemonIndex + 1}`
   window.location.href = `pokemon.html?url=${randomPokemonUrl}`
 })

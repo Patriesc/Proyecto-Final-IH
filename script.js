@@ -41,7 +41,7 @@ searchBar.addEventListener('keyup', (e) => {
 
 // Selección aleatoria de Pokemon
 randomButton.addEventListener('click', () => {
-  const randomPokemonIndex = Math.floor(Math.random() * 151)
+  const randomPokemonIndex = Math.floor(Math.random() * 649)
   const randomPokemonUrl = `https://pokeapi.co/api/v2/pokemon/${randomPokemonIndex + 1}`
   window.location.href = `pokemon.html?url=${randomPokemonUrl}`
 })
@@ -88,6 +88,10 @@ function updatePokemonList() {
     case '5':
       limit = 156
       offset = 493
+      break
+    case 'all':
+      limit = 649
+      offset = 0
       break
   }
 
