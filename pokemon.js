@@ -28,7 +28,7 @@ fetch(pokemonUrl)
 
     // Actualizar las habilidades del Pokemon
     const abilities = data.abilities.map((ability) => ability.ability.name)
-    pokemonAbilities.innerHTML = `<strong>Abilities:</strong> ${abilities.join(', ')}`
+    pokemonAbilities.innerHTML = `<strong>Abilities:</strong> ${abilities.to.join(', ')}`
 
     // Actualizar los movimientos del Pokemon
     const moves = data.moves.slice(0, 5).map((move) => move.move.name)

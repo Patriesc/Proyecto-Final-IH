@@ -1,6 +1,5 @@
 /* Estilos para la página pokemon.html */
 
-/* Fondo */
 body {
   background-color: #f3f4f6;
   font-family: 'Roboto', sans-serif;
@@ -11,7 +10,6 @@ a {
   color: #ffffff;
 }
 
-/* Contenedor principal */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -21,7 +19,6 @@ a {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
-/* Imagen del Pokemon */
 #pokemon-image {
   display: block;
   margin: 0 auto;
@@ -30,7 +27,6 @@ a {
   height: auto;
 }
 
-/* Nombre del Pokemon */
 #pokemon-name {
   font-size: 2rem;
   text-align: center;
@@ -38,25 +34,21 @@ a {
   text-transform: capitalize;
 }
 
-/* Tipo del Pokemon */
 #pokemon-type {
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Habilidades del Pokemon */
 #pokemon-abilities {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
-/* Movimientos del Pokemon */
 #pokemon-moves {
   font-size: 1.2rem;
 }
 
-/* Botón de volver */
 .back-button {
   display: block;
   margin: 20px auto 0;
