@@ -12,9 +12,9 @@ const getAllPokemon = () => {
       pokemonList.innerHTML = pokemon
         .map(
           (p) => `<li class="pokemon-card" data-url="${p.url}">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
           p.url.split('/')[6]
-        }.png" alt="${p.name}">
+        }.svg" alt="${p.name}">
         <h2>${p.name}</h2>
       </li>`,
         )
@@ -42,55 +42,16 @@ searchBar.addEventListener('keyup', (e) => {
 randomButton.addEventListener('click', () => {
   const randomPokemonIndex = Math.floor(Math.random() * 151)
   const randomPokemonUrl = `https://pokeapi.co/api/v2/pokemon/${randomPokemonIndex + 1}`
-  fetch(randomPokemonUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      const pokemon = {
-        name: data.name,
-        image: data.sprites.front_default,
-        type: data.types[0].type.name,
-        abilities: data.abilities.map((a) => a.ability.name),
-        moves: data.moves.slice(0, 4).map((m) => m.move.name),
-      }
-      const pokemonCard = `
-        <li class="pokemon-card">
-          <img src="${pokemon.image}" alt="${pokemon.name}">
-          <h2>${pokemon.name}</h2>
-          <p>Type: ${pokemon.type}</p>
-          <p>Abilities: ${pokemon.abilities.join(', ')}</p>
-          <p>Moves: ${pokemon.moves.join(', ')}</p>
-        </li>
-      `
-      pokemonList.innerHTML = pokemonCard
-    })
+  window.location.href = `pokemon.html?url=${randomPokemonUrl}`
 })
 
 // Handle Pokemon card click
 pokemonList.addEventListener('click', (e) => {
   const pokemonCard = e.target.closest('.pokemon-card')
+  console.log(pokemonCard)
   if (pokemonCard) {
     const pokemonUrl = pokemonCard.getAttribute('data-url')
-    fetch(pokemonUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        const pokemon = {
-          name: data.name,
-          image: data.sprites.front_default,
-          type: data.types[0].type.name,
-          abilities: data.abilities.map((a) => a.ability.name),
-          moves: data.moves.slice(0, 4).map((m) => m.move.name),
-        }
-        const pokemonCard = `
-          <li class="pokemon-card">
-            <img src="${pokemon.image}" alt="${pokemon.name}">
-            <h2>${pokemon.name}</h2>
-            <p>Type: ${pokemon.type}</p>
-            <p>Abilities: ${pokemon.abilities.join(', ')}</p>
-            <p>Moves: ${pokemon.moves.join(', ')}</p>
-          </li>
-        `
-        pokemonList.innerHTML = pokemonCard
-      })
+    window.location.href = `pokemon.html?url=${pokemonUrl}`
   }
 })
 
